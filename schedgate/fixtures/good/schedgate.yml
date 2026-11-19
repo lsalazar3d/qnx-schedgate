@@ -1,0 +1,13 @@
+# Sample timing budget for the lantern heartbeat demo.
+target: qnx-8.0
+threads:
+  - name: pulse_loop
+    policy: SCHED_FIFO
+    priority: 21
+    period_ns: 10000000
+    wcet_ns: 1200000
+  - name: logger
+    policy: SCHED_RR
+    priority: 10
+    period_ns: 50000000
+    wcet_ns: 2000000

@@ -1,0 +1,4 @@
+[+script] startup-script = {
+    busybox
+}
+[perms=0777] /tmp/open-bin

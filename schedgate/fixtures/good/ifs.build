@@ -1,0 +1,17 @@
+[image=x86_64le]
+[virtual=x86_64le,elf +compress] boot = {
+    [bootstrap=x86_64]
+    startup-x86
+    PATH=/proc/boot ./procnto-smp-instr
+}
+
+[+script] startup-script = {
+    display_msg Night lantern heartbeat is coming up.
+    waitfor /dev/null
+    devc-ser8250 -e
+    waitfor /dev/ser1 4
+    pulse_heartbeat &
+}
+
+[type=link] /bin/sh=/proc/boot/ksh
+[uid=0 gid=0 perms=0755] pulse_heartbeat

@@ -1,0 +1,11 @@
+threads:
+  - name: late_loop
+    policy: SCHED_OTHER
+    priority: 1
+    period_ns: 1000000
+    wcet_ns: 900000
+  - name: hog
+    policy: SCHED_FIFO
+    priority: 21
+    period_ns: 2000000
+    wcet_ns: 2500000

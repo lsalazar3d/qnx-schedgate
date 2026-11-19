@@ -1,0 +1,15 @@
+# Timing budget for pulse_heartbeat on QNX SDP 8.0.
+# Period and WCET are in nanoseconds. These numbers are a conservative
+# budget for a lantern / factory-line heartbeat, not a medical claim.
+target: qnx-8.0
+threads:
+  - name: pulse_loop
+    policy: SCHED_FIFO
+    priority: 21
+    period_ns: 10000000
+    wcet_ns: 1200000
+  - name: logger
+    policy: SCHED_RR
+    priority: 10
+    period_ns: 50000000
+    wcet_ns: 2000000
